@@ -31,7 +31,7 @@ const EditTicket = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (ticket && ticket.id !== null) {
+    if (ticket && ticket.id !== null && ticket.name) {
       try {
         updateTicket(ticket.id, ticket);
         navigate("/"); // Navigate only if update is successful

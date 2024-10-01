@@ -20,6 +20,8 @@ const CreateTicket = () => {
   const navigate = useNavigate();
 
   const [users, setUsers] = useState<UserData[] | undefined>([]);
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("");
 
   const getAllUsers = async () => {
     try {
@@ -36,10 +38,14 @@ const CreateTicket = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (newTicket){
+    if (newTicket && newTicket.name !== null && newTicket.name !== '') {
       const data = await createTicket(newTicket);
       console.log(data);
       navigate('/');
+    } else {
+      console.error('Ticket data is undefined');
+      setError(true);
+      setErrorMessage('Add a ticket name');
     }
   }
 
@@ -111,6 +117,7 @@ const CreateTicket = () => {
             )
           }
           </select>
+          <div>{error && <p className="error">{errorMessage}</p>}</div>
           <button type='submit' onSubmit={handleSubmit}>Submit Form</button>
         </form>
       </div>
