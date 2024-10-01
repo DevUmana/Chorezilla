@@ -229,6 +229,10 @@ tbody tr:nth-child(odd) {
   min-width: 30px;
 }
 
+.error {
+  color: red;
+}
+
 .editBtn {
   background-color: var(--primary-color);
   border-radius: 8px;
