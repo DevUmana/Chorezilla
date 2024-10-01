@@ -10,6 +10,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* create a var for a color */
+  --primary-color: #347928;
+  --secondary-color: #C0EBA6;
+  --hover-color: #535bf2;
 }
 
 /* webkit solution */
@@ -24,11 +28,12 @@ input:-moz-placeholder {
 
 a {
   font-weight: 500;
-  color: #000000;
+  color: var(--secondary-color);
   text-decoration: inherit;
+  padding: 10px;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--hover-color);
 }
 
 body {
@@ -54,12 +59,14 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  color: var(--hover-color);
+  border-color: var(--hover-color);
 }
 button:focus,
 button:focus-visible {
@@ -67,7 +74,7 @@ button:focus-visible {
 }
 
 main {
-  color: black;
+  color: var(--primary-color);
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -105,7 +112,7 @@ tbody tr:nth-child(odd) {
 }
 
 .nav-title a {
-  color: #b864c4;
+  color: var(--primary-color);
 }
 
 .nav-item {
@@ -140,22 +147,22 @@ tbody tr:nth-child(odd) {
   text-align: center;
   font-weight: 500;
   width: 33%;
-  height: 90vh; 
+  height: auto; 
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 5px;
   padding: 5px;
 }
 
 .todo {
-  background-color: #e9cbec;
+  background-color: #E0FBE2;
 }
 
 .inprogress {
-  background-color: #b864c4;
+  background-color: #BFF6C3;
 }
 
 .done {
-  background-color: #732381;
+  background-color: #B0EBB4;
 }
 
 .ticket-card {
@@ -177,22 +184,24 @@ tbody tr:nth-child(odd) {
 #create-ticket-link {
   display: block;
   margin-left: auto;
+  margin-right: 1em;
 }
 
 
 .form {
   width: 60%;
   height: 80%;
-  background-color: #b864c4;
+  background-color: var(--primary-color);
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .form > h1, .form > label {
-  color: yellow;
+  color: var(--secondary-color);
 }
 
 .form > input {
@@ -207,6 +216,11 @@ tbody tr:nth-child(odd) {
 
 .form button {
   margin-top: 2.5%;
+  color : var(--secondary-color);
+}
+
+.form button:hover {
+  color: var(--hover-color);
 }
 
 .form textarea {
@@ -216,7 +230,7 @@ tbody tr:nth-child(odd) {
 }
 
 .editBtn {
-  background-color: #f9f9f9;
+  background-color: var(--primary-color);
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -225,14 +239,15 @@ tbody tr:nth-child(odd) {
 }
 
 .deleteBtn {
-  background-color: #f9f9f9;
+  background-color: var(--primary-color);
   font-weight: 500;
-  color: black;
+  color: var(--secondary-color);
   text-decoration: inherit;
+  margin-left: 5px;
 }
 
 .deleteBtn:hover {
-  color: #535bf2;
+  color: var(--hover-color);
 }
 
 .login-notice {
@@ -249,7 +264,7 @@ tbody tr:nth-child(odd) {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: var(--hover-color);
   }
   button {
     background-color: #f9f9f9;
