@@ -11,6 +11,22 @@ class AuthService {
     return !!token && !this.isTokenExpired(token);
   }
 
+  redirectIfNotLoggedIn(navigate: Function) {
+    if (!this.loggedIn()) {
+      localStorage.removeItem("id_token");
+      navigate("/login");
+      return true;
+    }
+  }
+
+  redirectIfExpired() {
+    if (this.isTokenExpired(this.getToken())) {
+      localStorage.removeItem("id_token");
+      window.location.assign("/login");
+      return true;
+    }
+  }
+
   isTokenExpired(token: string) {
     try {
       const decoded = jwtDecode<JwtPayload>(token);

@@ -13,6 +13,8 @@ export const authenticateToken = (req, res, next) => {
         });
     }
     else {
+        console.log('No token provided');
+        console.log(req.headers);
         res.sendStatus(401); // Unauthorized
     }
 };
