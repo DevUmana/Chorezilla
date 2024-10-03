@@ -14,7 +14,7 @@ const Navbar = () => {
   useEffect(() => {
     console.log(loginCheck);
     checkLogin();
-  }, [loginCheck])
+  }, [loginCheck]);
 
   return (
     <div className='nav'>
