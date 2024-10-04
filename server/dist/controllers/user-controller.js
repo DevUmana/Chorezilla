@@ -1,9 +1,9 @@
-import { User } from '../models/user.js';
+import { User } from "../models/user.js";
 // GET /Users
 export const getAllUsers = async (_req, res) => {
     try {
         const users = await User.findAll({
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ["password"] },
         });
         res.json(users);
     }
@@ -16,13 +16,13 @@ export const getUserById = async (req, res) => {
     const { id } = req.params;
     try {
         const user = await User.findByPk(id, {
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ["password"] },
         });
         if (user) {
             res.json(user);
         }
         else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json({ message: "User not found" });
         }
     }
     catch (error) {
@@ -53,7 +53,7 @@ export const updateUser = async (req, res) => {
             res.json(user);
         }
         else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json({ message: "User not found" });
         }
     }
     catch (error) {
@@ -67,10 +67,10 @@ export const deleteUser = async (req, res) => {
         const user = await User.findByPk(id);
         if (user) {
             await user.destroy();
-            res.json({ message: 'User deleted' });
+            res.json({ message: "User deleted" });
         }
         else {
-            res.status(404).json({ message: 'User not found' });
+            res.status(404).json({ message: "User not found" });
         }
     }
     catch (error) {

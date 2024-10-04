@@ -1,5 +1,5 @@
-import { JwtPayload, jwtDecode } from "jwt-decode";
-import { UserData } from "../interfaces/UserData";
+import { JwtPayload, jwtDecode } from 'jwt-decode';
+import { UserData } from '../interfaces/UserData';
 
 class AuthService {
   getProfile() {
@@ -13,16 +13,16 @@ class AuthService {
 
   redirectIfNotLoggedIn(navigate: Function) {
     if (!this.loggedIn()) {
-      localStorage.removeItem("id_token");
-      navigate("/login");
+      localStorage.removeItem('id_token');
+      navigate('/login');
       return true;
     }
   }
 
   redirectIfExpired() {
     if (this.isTokenExpired(this.getToken())) {
-      localStorage.removeItem("id_token");
-      window.location.assign("/login");
+      localStorage.removeItem('id_token');
+      window.location.assign('/login');
       return true;
     }
   }
@@ -40,18 +40,18 @@ class AuthService {
   }
 
   getToken(): string {
-    const loggedUser = localStorage.getItem("id_token") || "";
+    const loggedUser = localStorage.getItem('id_token') || '';
     return loggedUser;
   }
 
   login(idToken: string) {
-    localStorage.setItem("id_token", idToken);
-    window.location.assign("/");
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/');
   }
 
   logout() {
-    localStorage.removeItem("id_token");
-    window.location.assign("/");
+    localStorage.removeItem('id_token');
+    window.location.assign('/');
   }
 }
 

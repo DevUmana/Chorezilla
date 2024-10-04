@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter Tight", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -12,18 +12,18 @@
   -moz-osx-font-smoothing: grayscale;
   /* create a var for a color */
   --primary-color: #347928;
-  --secondary-color: #C0EBA6;
+  --secondary-color: #c0eba6;
   --hover-color: #535bf2;
 }
 
 /* webkit solution */
-::-webkit-input-placeholder { 
-  text-align:right; 
+::-webkit-input-placeholder {
+  text-align: right;
 }
 
 /* mozilla solution */
-input:-moz-placeholder { 
-  text-align:right; 
+input:-moz-placeholder {
+  text-align: right;
 }
 
 a {
@@ -37,7 +37,7 @@ a:hover {
 }
 
 body {
-  background: #ECF0F1;
+  background: #ecf0f1;
   background-size: cover;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
@@ -147,22 +147,22 @@ tbody tr:nth-child(odd) {
   text-align: center;
   font-weight: 500;
   width: 33%;
-  height: auto; 
+  height: auto;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 5px;
   padding: 5px;
 }
 
 .todo {
-  background-color: #E0FBE2;
+  background-color: #e0fbe2;
 }
 
 .inprogress {
-  background-color: #BFF6C3;
+  background-color: #bff6c3;
 }
 
 .done {
-  background-color: #B0EBB4;
+  background-color: #b0ebb4;
 }
 
 .ticket-card {
@@ -187,7 +187,6 @@ tbody tr:nth-child(odd) {
   margin-right: 1em;
 }
 
-
 .form {
   width: 60%;
   height: 80%;
@@ -200,13 +199,13 @@ tbody tr:nth-child(odd) {
   border-radius: 10px;
 }
 
-.form > h1, .form > label {
+.form > h1,
+.form > label {
   color: var(--secondary-color);
 }
 
 .form > input {
   width: 200px;
-  
 }
 
 .form > label {
@@ -216,7 +215,7 @@ tbody tr:nth-child(odd) {
 
 .form button {
   margin-top: 2.5%;
-  color : var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .form button:hover {
@@ -298,7 +297,6 @@ tbody tr:nth-child(odd) {
   align-items: center;
   justify-content: center;
 }
-
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -1,4 +1,4 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes, Model } from "sequelize";
 export class Ticket extends Model {
 }
 export function TicketFactory(sequelize) {
@@ -25,7 +25,7 @@ export function TicketFactory(sequelize) {
             allowNull: true,
         },
     }, {
-        tableName: 'tickets',
+        tableName: "tickets",
         sequelize,
     });
     return Ticket;
