@@ -37,7 +37,7 @@ const EditTicket = () => {
     if (ticket && ticket.id !== null && ticket.name) {
       try {
         await updateTicket(ticket.id, ticket);
-        navigate("/"); // Navigate only if update is successful
+        navigate("/");
       } catch (err) {
         console.error("Failed to update ticket:", err);
       }

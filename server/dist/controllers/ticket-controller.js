@@ -1,5 +1,5 @@
-import { Ticket } from '../models/ticket.js';
-import { User } from '../models/user.js';
+import { Ticket } from "../models/ticket.js";
+import { User } from "../models/user.js";
 // GET /tickets
 export const getAllTickets = async (_req, res) => {
     try {
@@ -7,8 +7,8 @@ export const getAllTickets = async (_req, res) => {
             include: [
                 {
                     model: User,
-                    as: 'assignedUser', // This should match the alias defined in the association
-                    attributes: ['username'], // Include only the username attribute
+                    as: "assignedUser", // This should match the alias defined in the association
+                    attributes: ["username"], // Include only the username attribute
                 },
             ],
         });
@@ -26,8 +26,8 @@ export const getTicketById = async (req, res) => {
             include: [
                 {
                     model: User,
-                    as: 'assignedUser', // This should match the alias defined in the association
-                    attributes: ['username'], // Include only the username attribute
+                    as: "assignedUser", // This should match the alias defined in the association
+                    attributes: ["username"], // Include only the username attribute
                 },
             ],
         });
@@ -35,7 +35,7 @@ export const getTicketById = async (req, res) => {
             res.json(ticket);
         }
         else {
-            res.status(404).json({ message: 'Ticket not found' });
+            res.status(404).json({ message: "Ticket not found" });
         }
     }
     catch (error) {
@@ -46,7 +46,12 @@ export const getTicketById = async (req, res) => {
 export const createTicket = async (req, res) => {
     const { name, status, description, assignedUserId } = req.body;
     try {
-        const newTicket = await Ticket.create({ name, status, description, assignedUserId });
+        const newTicket = await Ticket.create({
+            name,
+            status,
+            description,
+            assignedUserId,
+        });
         res.status(201).json(newTicket);
     }
     catch (error) {
@@ -68,7 +73,7 @@ export const updateTicket = async (req, res) => {
             res.json(ticket);
         }
         else {
-            res.status(404).json({ message: 'Ticket not found' });
+            res.status(404).json({ message: "Ticket not found" });
         }
     }
     catch (error) {
@@ -82,10 +87,10 @@ export const deleteTicket = async (req, res) => {
         const ticket = await Ticket.findByPk(id);
         if (ticket) {
             await ticket.destroy();
-            res.json({ message: 'Ticket deleted' });
+            res.json({ message: "Ticket deleted" });
         }
         else {
-            res.status(404).json({ message: 'Ticket not found' });
+            res.status(404).json({ message: "Ticket not found" });
         }
     }
     catch (error) {

@@ -17,7 +17,6 @@ const Board = () => {
   const [sortOption, setSortOption] = useState<string>("name");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-
   const checkLogin = () => {
     if (auth.loggedIn()) {
       setLoginCheck(true);
@@ -56,11 +55,12 @@ const Board = () => {
     }
   }, [loginCheck]);
 
-
   const sortTickets = (tickets: TicketData[], sortOption: string) => {
     switch (sortOption) {
       case "name":
-        return tickets.sort((a, b) => (a.name ?? "").localeCompare(b.name ?? ""));
+        return tickets.sort((a, b) =>
+          (a.name ?? "").localeCompare(b.name ?? "")
+        );
       case "id":
         return tickets.sort((a, b) => (a.id ?? 0) - (b.id ?? 0));
       default:
@@ -70,13 +70,15 @@ const Board = () => {
 
   const filterTickets = (tickets: TicketData[], searchTerm: string) => {
     if (!searchTerm) {
-      return tickets; 
+      return tickets;
     }
-  
+
     return tickets.filter(
       (ticket) =>
         (ticket.name ?? "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-        (ticket.description ?? "").toLowerCase().includes(searchTerm.toLowerCase())
+        (ticket.description ?? "")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase())
     );
   };
 

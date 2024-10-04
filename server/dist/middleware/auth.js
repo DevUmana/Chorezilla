@@ -1,9 +1,9 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 export const authenticateToken = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {
-        const token = authHeader.split(' ')[1];
-        const secretKey = process.env.JWT_SECRET_KEY || '';
+        const token = authHeader.split(" ")[1];
+        const secretKey = process.env.JWT_SECRET_KEY || "";
         jwt.verify(token, secretKey, (err, user) => {
             if (err) {
                 return res.sendStatus(403); // Forbidden
@@ -13,7 +13,7 @@ export const authenticateToken = (req, res, next) => {
         });
     }
     else {
-        console.log('No token provided');
+        console.log("No token provided");
         console.log(req.headers);
         res.sendStatus(401); // Unauthorized
     }
