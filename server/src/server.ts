@@ -22,11 +22,6 @@ app.use(express.static(path.join(__dirname, '../../client/dist')));
 
 app.get('*', (_req, res) => {
   res.sendFile(path.resolve(__dirname, '../../client/dist', 'index.html'));
-  console.log('Serving index.html');
-  console.log(
-    'Path:',
-    path.resolve(__dirname, '../../client/dist', 'index.html'),
-  );
 });
 
 app.use(express.json());
