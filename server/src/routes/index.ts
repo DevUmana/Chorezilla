@@ -17,11 +17,6 @@ router.use('/api', authenticateToken, apiRoutes);
 
 router.get('*', (_req, res) => {
   res.sendFile(path.resolve(__dirname, '../../../client/dist', 'index.html'));
-  console.log('Serving index.html');
-  console.log(
-    'Path:',
-    path.resolve(__dirname, '../../../client/dist', 'index.html'),
-  );
 });
 
 export default router;
